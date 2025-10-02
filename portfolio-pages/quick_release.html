@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--meta data-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frank Regal Personal Website" />
+    <meta name="keywords" content="portfolio" />
+    <meta name="author" content="Frank Regal" />
+    <title>Frank Regal - Projects</title>
+    <!--meta data-->
+    <!--favicon-img--> 
+    <link rel="icon" type="image/png" href="../images/fr_logo.png">
+    <!--favicon-img-->
+    
+    <!--main css file-->
+    <link rel="stylesheet" href="../css/portfolio_pages.css">
+    <!--main css file-->
+
+    <!--load java script file--> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <!--<script src="js/gsap.min.js"></script>-->
+    <!--load java script file--> 
+</head>
+<body>
+    <a id="overview"></a>
+    <!--PAGE NAVIGATION-->
+    <div class="page-nav">
+        <div id="navigation-bar">
+            <!--POP DOWN NAV MENU-->
+            <!--<img src="../images/fr_logo_2.png" alt="logo">-->
+            <div class="menubar">
+                <span class="first-span"></span>
+                <span class="second-span"></span>
+                <span class="third-span"></span>
+            </div>
+            <!--POP DOWN NAV MENU-->
+            <!--CURRENT PAGE LINKS-->
+            <div class="page-links">
+                <a href="#overview" class="page-text">Overview</a>
+                <a href="#about-local" class="page-text">About</a>
+                <a href="#demos" class="page-text">Demos</a>
+                <a href="#publications" class="page-text">Presentations</a>
+                <a href="https://github.com/frank-Regal/augmented_reality_robot_control" class="page-text">GitHub</a>
+            </div>
+            <!--CURRENT PAGE LINKS-->
+        </div>
+        <!--POP DOWN MENU-->
+        <div id="navigation-content">
+            <!--
+            <div class="logo">
+                <img src="../images/fr_logo_2.png" alt="logo">
+            </div>
+            -->
+            <div class="navigation-close">
+                <span class="close-first"></span>
+                <span class="close-second"></span>
+            </div>
+            <div class="navigation-links">
+                <a href="../index.html" data-text="" id="home-link" >HOME</a>
+                <a href="../about.html" data-text="" id="about-link" >ABOUT</a>
+                <a href="../portfolio.html" data-text="" id="blog-link" >PORTFOLIO</a>
+                <a href="https://frankregal.notion.site/Publications-c7dcd42db093466c9ec1e710767217f6" data-text="" id="contact-link" >PUBLICATIONS</a>
+                <a href="https://frankregal.notion.site/Book-List-7aa65915563b4a149695bbf436e8cb8a" data-text="" id="portfolio-link" >READING LIST</a>
+            </div>
+        </div>
+        <!--POP DOWN MENU-->
+    </div>
+    <!--PAGE NAVIGATION-->
+    <!--PAGE CONTENT-->
+    <div class="portfolio-content">
+        <!--overview-->
+        <div class="main-container">
+            <div class="title">
+                Quick Release Four-Bar Mechanism
+            </div>
+            <div class="intro">
+                <img src="../images/gif/ar_control_demo.gif">
+            </div>
+        </div>
+        <!--overview-->
+        <!--page write up-->
+        <a id="about-local"></a>
+        <div class="about-content">
+            <div class="section-heading first">
+                About
+            </div>
+            <div class="section-content">
+                During my summer internship at Argonne National Labratory in the Robotics and Augmented Reality Test Lab, I was tasked with
+                researching new ways to enable remote operation of hot cell and glove box work for scientist across campus. I was able to 
+                use a Microsoft HoloLens 2 Augmented Reality device to track a users hand and visualize a holographic replica of a physical
+                dual arm setup. I was responsible for setting up two brand new Kinova Gen3 arms and setting up the communication pipeline 
+                between the HoloLens 2 and the Kinova Arms. At the end of my summer internship, users were able to remotely visualize and control
+                a holographic replica of the kinova dual arm setup from a remote location and use their hands to actually move the arms.
+            </div>
+            <br>
+            <div class="section-heading">
+                Details
+            </div>
+            <div class="section-content">
+                A Microsoft HoloLens 2, ROS packages, and Kinova Robotic's Gen3 robotic arms were combined to create a framework that allows remote operation via natural controls. Unity game engine and ROS package scripts created the communication pipeline required to communicate back and forth between the headset and robotic arms. With the augmented reality application scene setup, a user can manipulate the robotic arms with a pinch, using their thumb and index finger on the virtual arm grippers. The HoloLens 2 tracks the pose of the hand positioning. Those hand poses convert to serialized messages and are sent to an Ubuntu machine over a wireless network acting as a control station server. This server deserializes the messages and broadcasts them to specific scripts running on the server and robotic arms that interpret the messages and converts them to twist commands. When the robots move their position, the HoloLens 2 receives those location messages of the robotic arms through the reverse route, and the virtual arms within the HoloLens 2 send updates accordingly. Through this configuration, a user has an experience that allows them to see precisely the position of the robotic arms in the hot box from remote locations and the ability to control them effortlessly.
+                <br>
+                <br>
+                <img src="../images/portfolio/ar_robot_control/system_overview.png">
+                <br>
+                As shown in the overview figure above the Unity game engine was used to build the AR application. 
+                The game engine application provides HoloLens 2 users with virtual representations of the hot box and read the hand tracking data from the HoloLens. The Unity application on the HoloLens 2 publishes the hand positions and subscribes to the robotic arms' joint positions on ROS topics published on a RosBridge server. These ROS topic messages are standard PoseStamped and JointState ROS messages for the hands and robot joint positions, respectively. Before the Unity application sends the messages over the wireless network to the server, the Unity application serializes the messages into a standard JSON format. This JSON format allows for rapid translation of data across a local router. 
+                When the serialized ROS messages leave the HoloLens 2, a ROS package called RosBridge, running on a Linux server, begins to receive these messages, deserializes them, and broadcasts them locally to the ROS nodes on the Linux machine. One specific node is the Kinova AR Teleop Package. This custom ROS package takes the PoseStamped positions of the hands that the HoloLens published and converts them to a linear and angular velocity that the robots understand, called a Twist message. After converting to a Twist message, the Kinova AR Teleop Package publishes the new Twist message to the Kinova ROS Kortex package. This package is the low-level ROS package that sends the move commands to the robots. The ROS Kortex takes the Twist messages, calls the internal inverse kinematic solver, and sends a move command to the arms. Once the arms move, the ROS Kortex package takes the continuously published JointState information and publishes this back to the Kinova AR Teleop Package. The messages are then packaged, serialized, and sent back to the HoloLens 2 device across the network. The HoloLens 2 finally interprets the message, deserializes, and then updates the virtual representation position of the holographic Kinova arms in the Hololens 2 so that the user can see its new position from a remote location.
+                <br>
+                <br>
+                Watch my final presentation for the 2022 ORISE Ignite Talk below. Reference: <a href="https://orise.orau.gov/resources/stem/professional-development/during-the-internship/ignite-talks.html">2022 Oak Ridge Institute for Science and Education</a>!
+                <br>
+                <br>
+                <div class="youtube-video">
+                <div class="demo-video">
+                    <iframe class="responsive-iframe" 
+                    src="https://www.youtube.com/embed/kqXTQD5ye5Q" 
+                    title="ORISE Ignite Talk Presentation" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div>
+                </div>
+            </div>
+            <a id="demos"></a>
+            <br>
+            <div class="section-heading">
+                Demos
+            </div>
+            
+            <div class="section-content">
+                <div class="youtube-video">
+                <div class="demo-video">
+                <iframe class="responsive-iframe" width="660" height="415" 
+                    src="https://www.youtube.com/embed/vra3HZpJcC0" 
+                    title="Remote Operation of Dual Arm Robot with a HoloLens 2" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe> 
+                </div>
+            </div>
+            </div>
+            <br>
+            <a id="publications"></a>
+            <br>
+            <div class="section-heading">
+                Presentations
+            </div>
+            <div class="section-content">
+                <div class="publication-section-content">
+                    <ol>
+                        <li> <strong>Regal, F</strong>, Park, Young Soo, and Pryor, M., 
+                            <i>"Augmented Reality Remote Operation of Dual Arm Manipulators in Hot Boxes"</i>, XR & Robotics Workshop at IROS 2022, Kyoto, Japan, October 2022.
+                        </li>
+                        <br>
+                        <li> <strong>Regal, F</strong>,
+                            <i>"Augmented Reality Teleoperation of Hot Cell Dual-Arm Robots using HoloLens"</i>, EERE AMO Advanced Manufacturing Research Symposium, Department of Energy (DOE) Office of Energy Efficiency and
+                            Renewable Energy (EERE) Advanced Manufacturing Office (AMO), Virtual, September 2022.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+        <!--page write up-->
+    </div>
+    <!--PAGE CONTENT-->
+    <!--FOOTER-->
+    <div class="footer">
+        <div class="footer-text">
+            Last Updated September 2022 By Frank Regal 
+            <span class="footer-image">
+                Made In America<img src="../images/united-states.png" height="24px">
+            </span> 
+        </div>
+    </div>
+    <!--FOOTER-->
+    <!--SCRIPTS-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/particles.min.js"></script>
+    <script src="../js/index.js"></script>
+    <!--SCRIPTS-->
+</body>
+</html>

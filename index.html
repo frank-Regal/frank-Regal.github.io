@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--meta data-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frank Regal Personal Website" />
+	<meta name="keywords" content="portfolio" />
+	<meta name="author" content="Frank Regal" />
+    <title>Frank Regal - Austin, TX</title>
+    <!--favicon-img--> 
+    <link rel="icon" type="image/png" href="images/fr_logo.png">
+    <!--main css file-->
+    <link rel="stylesheet" href="css/index.css">
+    <!--load java script file--> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+</head>
+<body>
+    <div id="all">
+        <!--loader-->
+        <div id="loader">
+            robots
+            <br>
+            <span class="color">working</span>   
+        </div>
+        <!--loader-end-->
+        <!--link-screen-->
+        <div id="breaker">
+        </div>
+        <div id="breaker-four">
+        </div>
+        <!--link-screen-->
+        <!--navigator-fullscreen-->
+        <div id="navigation-content">
+            <div class="navigation-close">
+                <span class="close-first"></span>
+                <span class="close-second"></span>
+            </div>
+            <div class="navigation-links">
+                <a href="#" data-text="" id="home-link" >HOME</a>
+                <a href="about.html" data-text="" id="about-link" >ABOUT</a>
+                <a href="portfolio.html" data-text="" id="blog-link" >PORTFOLIO</a>
+                <a href="https://frankregal.notion.site/Publications-c7dcd42db093466c9ec1e710767217f6" data-text="" id="contact-link" >PUBLICATIONS</a> 
+            </div>
+        </div>
+        <!--navigator-fullscreen--end-->
+        <!--menubar-->
+        <div id="navigation-bar">
+            <div class="menubar">
+                <span class="first-span"></span>
+                <span class="second-span"></span>
+                <span class="third-span"></span>
+            </div>
+        </div>
+        <!--menubar-->
+        <!--header-->
+        <div id="header">
+            <div id="particles"></div>
+            <!--Social Media Links-->
+            <div class="social-media-links">
+                <a href="https://www.linkedin.com/in/frankregal/"><img src="images/linkedin logo.png" class="social-media" alt="linkedin-logo"></a>
+                <a href="https://github.com/frank-Regal"><img src="images/github.png" class="social-media" alt="instagram-logo"></a><!--Your instagram homepage link inser in place of "#"-->
+                <a href="https://www.youtube.com/channel/UCKqEFZ2bOucRrW-6aYL8okw"><img src="images/youtube_invert.png" class="social-media" alt="youtube-logo"></a>
+                <a href="https://www.printables.com/social/26856-regal16/about"><img src="images/prusa_spool_mod_invert.png" class="social-media" alt="facebook-logo"></a>
+                <a href="https://www.etsy.com/shop/RegalPrinting?ref=shop_sugg"><img src="images/etsy_mod.png" class="social-media" alt="twitter-logo"></a>
+            </div>
+            <!--Social Media Links-->
+            <!--homepage message-->
+            <div class="header-content">
+                <div class="header-content-box">
+                    <div class="firstline">
+                        <span class="color">frank</span>_regal
+                    </div>
+                    <div class="secondline">
+                        about@me~$:
+                        <span class="txt-rotate color" data-period="1000"data-rotate='[ " mechanical engineer", " programmer", " roboticist" ]'></span>
+                        <span class="slash">|</span>
+                    </div>
+                    <div class="contact">
+                        <!--not using contact logo-->
+                        <!--
+                            <a href="Mailto:"><img src="images/mail.png" alt="email-pic" class="contactpic"></a>Your email Id write in place of "#"
+                            <a href="Tel:#"><img src="images/call.png" alt="phone-pic" class="contactpic"></a> Your telephone number Id write in place of "#"
+                        -->
+                        <!--not using contact logo-->
+                    </div>    
+                </div>
+            </div>
+            <!--homepage message-->
+            <!--homepage profile image-->
+            <!--
+            <div class="header-image">
+                <img src="images/profile_pic/apt_pic/apt_pic_2_750_1000_pixelate_5T.png" alt="logo">
+            </div>
+            -->
+            <!--homepage profile image-->  
+        </div>
+    </div>
+    <!--all div--end-->
+    <!--division scripts-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/particles.min.js"></script>
+    <script src="js/index.js"></script>
+    <!--divisiion scripts-->
+    <!--particles script-->
+    <script>
+    particlesJS("particles", {"particles":{"number":{"value":40,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
+    </script>
+    <!--particles script-->
+    <!--portfolio project grid script-->
+    <script>
+    const portfolioItems = document.querySelectorAll('.portfolio-item-wrapper')
+    portfolioItems.forEach(portfolioItem => {
+        portfolioItem.addEventListener('mouseover',() => {
+            portfolioItem.childNodes[1].classList.add('img-darken');
+        })
+        portfolioItem.addEventListener('mouseout',() => {
+            portfolioItem.childNodes[1].classList.remove('img-darken');
+        })
+    })
+    </script>
+    <!--portfolio project grid script-->
+</body>
+</html>
