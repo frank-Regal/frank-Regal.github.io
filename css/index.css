@@ -101,11 +101,13 @@ body{
     align-items: center;
     justify-content: center;
 }
-#navigation-bar .navigation-links{
+#navigation-bar .navigation-links {
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
+
 #navigation-bar .navigation-links a{
     font-size: 18px;
 }
