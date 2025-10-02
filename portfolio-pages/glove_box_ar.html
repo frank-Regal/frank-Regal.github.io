@@ -28,15 +28,16 @@
     <div class="page-nav">
         <div id="navigation-bar">
             <!--POP DOWN NAV MENU-->
-            <!--<img src="../images/fr_logo_2.png" alt="logo">-->
+            <!--<img src="../images/fr_logo_2.png" alt="logo">
             <div class="menubar">
                 <span class="first-span"></span>
                 <span class="second-span"></span>
                 <span class="third-span"></span>
             </div>
-            <!--POP DOWN NAV MENU-->
+            POP DOWN NAV MENU-->
             <!--CURRENT PAGE LINKS-->
             <div class="page-links">
+                <a href="../portfolio.html" class="page-text"><span>&#129068;</span> Back</a>
                 <a href="#overview" class="page-text">Overview</a>
                 <a href="#about-local" class="page-text">About</a>
                 <a href="#demos" class="page-text">Demos</a>
@@ -45,13 +46,13 @@
             </div>
             <!--CURRENT PAGE LINKS-->
         </div>
-        <!--POP DOWN MENU-->
+        <!--POP DOWN MENU
         <div id="navigation-content">
-            <!--
+            
             <div class="logo">
                 <img src="../images/fr_logo_2.png" alt="logo">
             </div>
-            -->
+            
             <div class="navigation-close">
                 <span class="close-first"></span>
                 <span class="close-second"></span>
@@ -64,7 +65,7 @@
                 <a href="https://frankregal.notion.site/Book-List-7aa65915563b4a149695bbf436e8cb8a" data-text="" id="portfolio-link" >READING LIST</a>
             </div>
         </div>
-        <!--POP DOWN MENU-->
+        POP DOWN MENU-->
     </div>
     <!--PAGE NAVIGATION-->
     <!--PAGE CONTENT-->
@@ -75,7 +76,7 @@
                 AR Remote Operation of Dual Arm Robot
             </div>
             <div class="intro">
-                <img src="../images/gif/ar_control_demo.gif">
+                <img src="../images/portfolio/ar_robot_control/main_image.gif">
             </div>
         </div>
         <!--overview-->
@@ -108,14 +109,14 @@
                 When the serialized ROS messages leave the HoloLens 2, a ROS package called RosBridge, running on a Linux server, begins to receive these messages, deserializes them, and broadcasts them locally to the ROS nodes on the Linux machine. One specific node is the Kinova AR Teleop Package. This custom ROS package takes the PoseStamped positions of the hands that the HoloLens published and converts them to a linear and angular velocity that the robots understand, called a Twist message. After converting to a Twist message, the Kinova AR Teleop Package publishes the new Twist message to the Kinova ROS Kortex package. This package is the low-level ROS package that sends the move commands to the robots. The ROS Kortex takes the Twist messages, calls the internal inverse kinematic solver, and sends a move command to the arms. Once the arms move, the ROS Kortex package takes the continuously published JointState information and publishes this back to the Kinova AR Teleop Package. The messages are then packaged, serialized, and sent back to the HoloLens 2 device across the network. The HoloLens 2 finally interprets the message, deserializes, and then updates the virtual representation position of the holographic Kinova arms in the Hololens 2 so that the user can see its new position from a remote location.
                 <br>
                 <br>
-                Watch my final presentation for the 2022 ORISE Ignite Talk below. Reference: <a href="https://orise.orau.gov/resources/stem/professional-development/during-the-internship/ignite-talks.html">2022 Oak Ridge Institute for Science and Education</a>!
+                Watch my workshop presentation from the 2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2022) that won 2nd place!
                 <br>
                 <br>
                 <div class="youtube-video">
                 <div class="demo-video">
                     <iframe class="responsive-iframe" 
-                    src="https://www.youtube.com/embed/kqXTQD5ye5Q" 
-                    title="ORISE Ignite Talk Presentation" 
+                    src="https://www.youtube.com/embed/wGMj3KUyT4M" 
+                    title="IROS 2022 XR & Robotics Workshop Presentation" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                     </iframe>
@@ -144,13 +145,25 @@
             <a id="publications"></a>
             <br>
             <div class="section-heading">
+                Awards
+            </div>
+            <div class="section-content">
+                <div class="publication-section-content">
+                    <ol>
+                        <li> <strong>2nd Place</strong> - First International Workshop Horizons of an Extended Robotics Reality, 2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2022) 
+                        </li>
+                        </ol>
+                </div>
+            </div>
+            <div class="section-heading">
                 Presentations
             </div>
             <div class="section-content">
                 <div class="publication-section-content">
                     <ol>
                         <li> <strong>Regal, F</strong>, Park, Young Soo, and Pryor, M., 
-                            <i>"Augmented Reality Remote Operation of Dual Arm Manipulators in Hot Boxes"</i>, XR & Robotics Workshop at IROS 2022, Kyoto, Japan, October 2022.
+                            <i>"Augmented Reality Remote Operation of Dual Arm Manipulators in Hot Boxes"</i>, XR & Robotics Workshop at IROS 2022, Kyoto, Japan, October 2022. 
+                            <a href="https://arxiv.org/pdf/2303.16055.pdf">Abstract</a> | <a href="https://sites.google.com/view/xr-robotics-iros2022">IROS 2022 Workshop Website</a>
                         </li>
                         <br>
                         <li> <strong>Regal, F</strong>,
