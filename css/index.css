@@ -90,12 +90,27 @@ body{
 }
 #navigation-bar{
     position: fixed;
-    height: 100px;
+    top: 0;
+    height: 70px;
     width: 100%;
     z-index: 3;
-    padding: 10px;
-    background:transparent;
+    padding: 0;
+    background:#101010;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#navigation-bar .navigation-links{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#navigation-bar .navigation-links a{
+    font-size: 18px;
+}
+#navigation-bar .navigation-links li{
+    list-style: none;
 }
 .menubar{
     position: absolute;
