@@ -1419,10 +1419,10 @@ body{
 
 .portfolio-header h1 {
     font-size: 3rem;
-    font-weight: 300;
+    font-weight: 700;
     margin-bottom: 20px;
     color: #ffffff;
-    font-family: 'Mrs Sheppards', cursive;
+    font-family: poppins;
 }
 
 .portfolio-header p {
