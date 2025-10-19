@@ -435,9 +435,28 @@ body{
 .header-content .secondline{
     z-index: 2;
     font-size: 30px;
-    padding-top:20px ;
+    padding-top:5px ;
     font-weight:500;
     color: rgb(255, 255, 255,.8);
+}
+
+.hidden-text {
+    opacity: 0;
+    animation: fadeInText 0.1s ease-in-out 0.1s forwards;
+    font-family: poppins;
+    font-weight: 500;
+    color: rgb(255, 255, 255, 0.7);
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .slash{
     animation-name: animateslash;
@@ -2045,7 +2064,7 @@ Mobile Phone
     .header-content .secondline{
         z-index: 2;
         font-size: 20px;
-        padding-top:18px ;
+        padding-top:3px ;
         font-weight:500;
         color: rgb(255, 255, 255,.8);
     }
@@ -2697,7 +2716,7 @@ Tablets
     .header-content .secondline{
         z-index: 2;
         font-size: 25px;
-        padding-top:25px ;
+        padding-top:10px ;
         font-weight:500;
         color: rgb(255, 255, 255,.8);
     }
