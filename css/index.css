@@ -1419,6 +1419,7 @@ body{
     font-weight: 300;
     margin-bottom: 20px;
     color: #ffffff;
+    font-family: 'Mrs Sheppards', cursive;
 }
 
 .portfolio-header p {
@@ -1447,7 +1448,7 @@ body{
 .project-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-color: #be5608;
+    border-color: rgba(255, 255, 255, 0.8);
 }
 
 .project-image {
@@ -1472,8 +1473,8 @@ body{
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: #be5608;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #1d1d1d;
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -1490,6 +1491,7 @@ body{
     font-weight: 500;
     margin-bottom: 15px;
     color: #ffffff;
+    font-family: poppins;
 }
 
 .project-content p {
@@ -1507,8 +1509,8 @@ body{
 }
 
 .project-link {
-    background-color: #be5608;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.688);
+    color: #1d1d1d;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
@@ -1517,13 +1519,13 @@ body{
 }
 
 .project-link:hover {
-    background-color: #a04506;
+    background-color: #ffffff;
     transform: translateY(-2px);
 }
 
 .project-publication {
     font-size: 0.9rem;
-    color: #be5608;
+    color: rgba(255, 255, 255, 0.8);
     font-style: italic;
     opacity: 0.8;
 }
