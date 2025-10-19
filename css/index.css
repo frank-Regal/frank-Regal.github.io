@@ -176,6 +176,10 @@ body{
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+/* Offset navigation links when nav-name is present (home page) */
+#navigation-bar.home .navigation-links {
     margin-left: -80px;
 }
 
@@ -422,7 +426,6 @@ body{
     z-index: 2;
     text-align: center;
     height: auto;
-    padding-right: 60px;
     width: auto;
 
 }
@@ -1490,7 +1493,7 @@ body{
     font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 15px;
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.688);
     font-family: poppins;
 }
 
