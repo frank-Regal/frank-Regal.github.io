@@ -62,10 +62,15 @@ body{
     height: 100vh;
     width: 100%;;
     overflow: hidden;
-    animation: scale 1.5s ease;
     position:relative;
     display: block;
 }
+
+/* Add this to add a zoom animation to the header content
+.header-content {
+    animation: scale 1.5s ease;
+} */
+
 #particles{
     position: absolute;
     top: 0;
