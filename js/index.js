@@ -190,3 +190,78 @@ $(function(){
   $('.navigation-close').hover(cursorhover,cursor);
 
 })
+
+// Background video control
+$(document).ready(function() {
+    const video = document.getElementById('background-video');
+    
+    if (video) {
+        console.log('Video element found:', video);
+        
+        // Add event listeners for debugging
+        video.addEventListener('loadstart', function() {
+            console.log('Video loading started');
+        });
+        
+        video.addEventListener('loadeddata', function() {
+            console.log('Video data loaded');
+        });
+        
+        video.addEventListener('canplay', function() {
+            console.log('Video can start playing');
+        });
+        
+        video.addEventListener('error', function(e) {
+            console.error('Video error:', e);
+            console.error('Video error details:', video.error);
+        });
+        
+        // Ensure video plays
+        video.play().catch(function(error) {
+            console.log('Video autoplay failed:', error);
+            // Try to play after user interaction
+            $(document).one('click touchstart', function() {
+                video.play().catch(function(err) {
+                    console.log('Video play after interaction failed:', err);
+                });
+            });
+        });
+        
+        // Restart video if it stops
+        video.addEventListener('pause', function() {
+            console.log('Video paused, attempting to restart');
+            setTimeout(function() {
+                video.play().catch(function(err) {
+                    console.log('Video restart failed:', err);
+                });
+            }, 100);
+        });
+        
+        // Ensure video plays on user interaction
+        $(document).on('click touchstart', function() {
+            video.play().catch(function(err) {
+                console.log('Video play on interaction failed:', err);
+            });
+        });
+        
+        // Pause video when page is not visible (saves battery)
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                video.pause();
+            } else {
+                video.play().catch(function(err) {
+                    console.log('Video play on visibility change failed:', err);
+                });
+            }
+        });
+        
+        // Force play after a delay
+        setTimeout(function() {
+            video.play().catch(function(err) {
+                console.log('Delayed video play failed:', err);
+            });
+        }, 1000);
+    } else {
+        console.error('Video element not found!');
+    }
+});
