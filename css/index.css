@@ -337,9 +337,7 @@ body{
 }
 
 .mobile-nav-links a:hover {
-    color: #bf5700;
-    transform: translateX(10px);
-    text-shadow: 0 0 20px rgba(191, 87, 0, 0.6);
+    color: #ffffff;
 }
  border-radius: 20px;
 }
