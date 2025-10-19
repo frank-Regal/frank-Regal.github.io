@@ -435,7 +435,7 @@ body{
 .header-content .secondline{
     z-index: 2;
     font-size: 30px;
-    padding-top:5px ;
+    padding-top:0px ;
     font-weight:500;
     color: rgb(255, 255, 255,.8);
 }
@@ -445,7 +445,7 @@ body{
     animation: fadeInText 0.1s ease-in-out 0.1s forwards;
     font-family: poppins;
     font-weight: 500;
-    color: rgb(255, 255, 255, 0.7);
+    color: rgb(255, 255, 255, 0.8);
 }
 
 @keyframes fadeInText {
@@ -599,7 +599,7 @@ body{
     100%{ transform : translateX(100%) }
 }
 .color{
-    color: rgba(255, 255, 255, 0.688);
+    color: rgba(255, 255, 255, 0.8);
     transition: all .4s ease;
 }
 #about{
@@ -2064,7 +2064,7 @@ Mobile Phone
     .header-content .secondline{
         z-index: 2;
         font-size: 20px;
-        padding-top:3px ;
+        padding-top:0px ;
         font-weight:500;
         color: rgb(255, 255, 255,.8);
     }
@@ -2716,7 +2716,7 @@ Tablets
     .header-content .secondline{
         z-index: 2;
         font-size: 25px;
-        padding-top:10px ;
+        padding-top:5px ;
         font-weight:500;
         color: rgb(255, 255, 255,.8);
     }
