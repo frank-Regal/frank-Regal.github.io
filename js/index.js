@@ -265,3 +265,43 @@ $(document).ready(function() {
         console.error('Video element not found!');
     }
 });
+
+// Mobile hamburger menu functionality
+$(document).ready(function() {
+    const menubar = document.getElementById('menubar');
+    const mobileNav = document.getElementById('mobile-nav');
+    const closeMenu = document.getElementById('close-menu');
+    
+    if (menubar && mobileNav) {
+        // Open mobile menu
+        menubar.addEventListener('click', function() {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+        
+        // Close mobile menu
+        if (closeMenu) {
+            closeMenu.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            });
+        }
+        
+        // Close menu when clicking on links
+        const mobileNavLinks = mobileNav.querySelectorAll('.mobile-nav-links a');
+        mobileNavLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Close menu when clicking outside
+        mobileNav.addEventListener('click', function(e) {
+            if (e.target === mobileNav) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+});
