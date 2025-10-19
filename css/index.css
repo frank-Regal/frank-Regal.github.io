@@ -112,12 +112,18 @@ body{
     font-family: 'Mrs Sheppards', cursive;
     font-size: 28px;
     font-weight: 400;
-    z-index: 4;
+    z-index: 10;
     letter-spacing: 1px;
     opacity: 0.9;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-style: normal;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 10px 15px;
+    display: inline-block;
+    min-width: 60px;
+    text-align: center;
+    pointer-events: auto;
+    cursor: pointer;
 }
 
 .nav-name:hover {
@@ -156,10 +162,10 @@ body{
     top: 0;
     height: 70px;
     width: 100%;
-    z-index: 3;
+    z-index: 15;
     padding: 0;
     background:#101010;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -291,6 +297,8 @@ body{
     left: 25px;
     opacity: 0.5;
     transition: all .4s ease;
+    pointer-events: none;
+    z-index: 1;
 }
 #navigation-bar img:hover{
     opacity: 1;
