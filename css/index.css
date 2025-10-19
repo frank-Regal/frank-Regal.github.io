@@ -1461,14 +1461,16 @@ body{
     overflow: hidden;
 }
 
-.project-image img {
+.project-image img,
+.project-image video {
     width: 100%;
     height: 200px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.project-item:hover .project-image img {
+.project-item:hover .project-image img,
+.project-item:hover .project-image video {
     transform: scale(1.05);
 }
 
