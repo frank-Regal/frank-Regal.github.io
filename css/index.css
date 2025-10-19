@@ -580,7 +580,7 @@ body{
     100%{ transform : translateX(100%) }
 }
 .color{
-    color: #bf5700;
+    color: rgba(255, 255, 255, 0.688);
     transition: all .4s ease;
 }
 #about{
