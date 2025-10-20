@@ -284,7 +284,7 @@ $(document).ready(function() {
     
     function startAutoPlay() {
         stopAutoPlay(); // Clear any existing interval
-        autoPlayInterval = setInterval(nextVideo, 10000); // Change video every 10 seconds
+        autoPlayInterval = setInterval(nextVideo, 8000); // Change video every 8 seconds
     }
     
     function stopAutoPlay() {
