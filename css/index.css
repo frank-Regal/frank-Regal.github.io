@@ -808,7 +808,7 @@ body{
 .about-side-info-title-paragraph{
     /*background-color:#a70469;*/
     font-size: 18px;
-    font-family: roboto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     text-align: left;
     font-weight: 300;
     line-height: 1.5;
@@ -1068,7 +1068,7 @@ body{
     width: 25px;
     height: 25px;
     left: 50%;
-    background-color: #bf5700;
+    background-color: #c9d1cc;
     top: 15px;
     border-radius: 50%;
     z-index: 1;
@@ -1095,9 +1095,9 @@ body{
     top: 13px;
     z-index: 1;
     left: 48%; /*ADJUST ARROW LOCATION*/
-    border: medium solid #bf5700;
+    border: medium solid #c9d1cc;
     border-width: 15px 0 15px 15px;
-    border-color: transparent transparent transparent #bf5700;
+    border-color: transparent transparent transparent #c9d1cc;
     }
     
     /* Add arrows to the right container (pointing left) */
@@ -1107,9 +1107,9 @@ body{
     top: 13px;
     z-index: 1;
     left: 6.25%; /*ADJUST ARROW LOCATION*/
-    border: medium solid #bf5700;
+    border: medium solid #c9d1cc;
     border-width: 15px 15px 15px 0;
-    border-color: transparent #bf5700 transparent transparent;
+    border-color: transparent #c9d1cc transparent transparent;
     }
     
     /* Fix the circle for containers on the right side */
@@ -2235,7 +2235,7 @@ Mobile Phone
     #breaker{
         height: 50vh;
         width: 200%;
-        background-color: #bf5700;
+        background-color: #c9d1cc;
         opacity: 1;
         animation: breakeranimate 2s linear;
         display: none;
@@ -2363,7 +2363,7 @@ Mobile Phone
     .about-side-info-title-paragraph{
         /*background-color:#a70469;*/
         font-size: 16px;
-        font-family: roboto;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
         text-align: center;
         font-weight: 300;
         line-height: 1.5;
@@ -2888,7 +2888,7 @@ Tablets
     #breaker{
         height: 50vh;
         width: 200%;
-        background-color: #bf5700;
+        background-color: #c9d1cc;
         opacity: 1;
         animation: breakeranimate 2s linear;
         display: none;
@@ -3005,7 +3005,7 @@ Tablets
     .about-side-info-title-paragraph{
         /*background-color:#a70469;*/
         font-size: 16px;
-        font-family: roboto;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
         text-align: center;
         font-weight: 300;
         line-height: 1.5;
@@ -3433,7 +3433,7 @@ Monitor
     .about-side-info-title-paragraph{
         /*background-color:#a70469;*/
         font-size: 18px;
-        font-family: roboto;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
         text-align: left;
         font-weight: 300;
         line-height: 1.5;
@@ -3565,7 +3565,7 @@ Monitor
     width: 25px;
     height: 25px;
     left: 50%;
-    background-color: #bf5700;
+    background-color: #c9d1cc;
     top: 15px;
     border-radius: 50%;
     z-index: 1;
@@ -3592,9 +3592,9 @@ Monitor
     top: 13px;
     z-index: 1;
     left: 49.75%;
-    border: medium solid #bf5700;
+    border: medium solid #c9d1cc;
     border-width: 15px 0 15px 15px;
-    border-color: transparent transparent transparent #bf5700;
+    border-color: transparent transparent transparent #c9d1cc;
     }
     
     /* Add arrows to the right container (pointing left) */
@@ -3604,9 +3604,9 @@ Monitor
     top: 13px;
     z-index: 1;
     left: 3.25%;
-    border: medium solid #bf5700;
+    border: medium solid #c9d1cc;
     border-width: 15px 15px 15px 0;
-    border-color: transparent #bf5700 transparent transparent;
+    border-color: transparent #c9d1cc transparent transparent;
     }
     
     /* Fix the circle for containers on the right side */
