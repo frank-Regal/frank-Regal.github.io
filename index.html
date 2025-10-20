@@ -61,12 +61,65 @@
         </div>
         <!--header-->
         <div id="header">
-            <!-- Background Video -->
-            <video id="background-video" autoplay muted loop playsinline preload="auto">
-                <source src="videos/nasa_roverscape.mp4" type="video/mp4">
-                <source src="videos/nasa_roverscape.webm"type="video/webm">
-                Your browser does not support the video tag.
-            </video>
+            <!-- Video Carousel Container -->
+            <div id="video-carousel">
+                <!-- Video 1 -->
+                <video class="carousel-video active" autoplay muted loop playsinline preload="auto">
+                    <source src="videos/nasa_roverscape.mp4" type="video/mp4">
+                    <source src="videos/nasa_roverscape.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <!-- Video 2 -->
+                <video class="carousel-video" muted loop playsinline preload="auto">
+                    <source src="videos/porfolio/augre_xr_robotics_vid.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <!-- Video 3 -->
+                <video class="carousel-video" muted loop playsinline preload="auto">
+                    <source src="videos/porfolio/ar_star_interactions.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <!-- Video 4 -->
+                <video class="carousel-video" muted loop playsinline preload="auto">
+                    <source src="videos/porfolio/hipless_mmic.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <!-- Video 5 -->
+                <video class="carousel-video" muted loop playsinline preload="auto">
+                    <source src="videos/porfolio/small_sat_armadas_conops.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <!-- Video Navigation Controls -->
+            <div id="video-controls">
+                <!-- Left Arrow -->
+                <button id="prev-video" class="video-nav-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"></polyline>
+                    </svg>
+                </button>
+                
+                <!-- Dots Indicator -->
+                <div id="video-dots">
+                    <span class="dot active" data-video="0"></span>
+                    <span class="dot" data-video="1"></span>
+                    <span class="dot" data-video="2"></span>
+                    <span class="dot" data-video="3"></span>
+                    <span class="dot" data-video="4"></span>
+                </div>
+                
+                <!-- Right Arrow -->
+                <button id="next-video" class="video-nav-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"></polyline>
+                    </svg>
+                </button>
+            </div>
             <!--Social Media Links-->
             <ul class="social-media-links">
                 <a href="https://www.linkedin.com/in/frankregal/"><img src="images/linkedin logo.png" class="social-media" alt="linkedin-logo"></a>

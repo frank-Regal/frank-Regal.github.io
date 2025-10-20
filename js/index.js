@@ -191,79 +191,156 @@ $(function(){
 
 })
 
-// Background video control
+// Video Carousel Control
 $(document).ready(function() {
-    const video = document.getElementById('background-video');
+    const videos = document.querySelectorAll('.carousel-video');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('prev-video');
+    const nextBtn = document.getElementById('next-video');
+    let currentVideoIndex = 0;
+    let autoPlayInterval;
     
-    if (video) {
-        console.log('Video element found:', video);
+    // Initialize carousel
+    function initCarousel() {
+        console.log('Initializing video carousel with', videos.length, 'videos');
         
-        // Add event listeners for debugging
-        video.addEventListener('loadstart', function() {
-            console.log('Video loading started');
+        // Start the first video
+        if (videos.length > 0) {
+            videos[0].play().catch(function(error) {
+                console.log('Initial video play failed:', error);
+            });
+        }
+        
+        // Start auto-play
+        startAutoPlay();
+        
+        // Add event listeners
+        if (prevBtn) prevBtn.addEventListener('click', previousVideo);
+        if (nextBtn) nextBtn.addEventListener('click', nextVideo);
+        
+        // Add dot click listeners
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToVideo(index));
         });
         
-        video.addEventListener('loadeddata', function() {
-            console.log('Video data loaded');
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                previousVideo();
+            } else if (e.key === 'ArrowRight') {
+                nextVideo();
+            }
         });
         
-        video.addEventListener('canplay', function() {
-            console.log('Video can start playing');
+        // Pause auto-play on hover
+        const videoControls = document.getElementById('video-controls');
+        if (videoControls) {
+            videoControls.addEventListener('mouseenter', stopAutoPlay);
+            videoControls.addEventListener('mouseleave', startAutoPlay);
+        }
+    }
+    
+    function showVideo(index) {
+        // Hide all videos
+        videos.forEach((video, i) => {
+            video.classList.remove('active');
+            if (i !== index) {
+                video.pause();
+            }
         });
         
+        // Show current video
+        if (videos[index]) {
+            videos[index].classList.add('active');
+            videos[index].play().catch(function(error) {
+                console.log('Video play failed:', error);
+            });
+        }
+        
+        // Update dots
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        
+        currentVideoIndex = index;
+    }
+    
+    function nextVideo() {
+        const nextIndex = (currentVideoIndex + 1) % videos.length;
+        showVideo(nextIndex);
+        restartAutoPlay();
+    }
+    
+    function previousVideo() {
+        const prevIndex = currentVideoIndex === 0 ? videos.length - 1 : currentVideoIndex - 1;
+        showVideo(prevIndex);
+        restartAutoPlay();
+    }
+    
+    function goToVideo(index) {
+        showVideo(index);
+        restartAutoPlay();
+    }
+    
+    function startAutoPlay() {
+        stopAutoPlay(); // Clear any existing interval
+        autoPlayInterval = setInterval(nextVideo, 8000); // Change video every 8 seconds
+    }
+    
+    function stopAutoPlay() {
+        if (autoPlayInterval) {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = null;
+        }
+    }
+    
+    function restartAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+    }
+    
+    // Handle video loading errors
+    videos.forEach((video, index) => {
         video.addEventListener('error', function(e) {
-            console.error('Video error:', e);
+            console.error(`Video ${index} error:`, e);
             console.error('Video error details:', video.error);
         });
         
-        // Ensure video plays
-        video.play().catch(function(error) {
-            console.log('Video autoplay failed:', error);
-            // Try to play after user interaction
-            $(document).one('click touchstart', function() {
-                video.play().catch(function(err) {
-                    console.log('Video play after interaction failed:', err);
-                });
-            });
+        video.addEventListener('loadstart', function() {
+            console.log(`Video ${index} loading started`);
         });
         
-        // Restart video if it stops
-        video.addEventListener('pause', function() {
-            console.log('Video paused, attempting to restart');
-            setTimeout(function() {
-                video.play().catch(function(err) {
-                    console.log('Video restart failed:', err);
-                });
-            }, 100);
+        video.addEventListener('canplay', function() {
+            console.log(`Video ${index} can start playing`);
         });
-        
-        // Ensure video plays on user interaction
-        $(document).on('click touchstart', function() {
+    });
+    
+    // Pause videos when page is not visible (saves battery)
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            videos.forEach(video => video.pause());
+            stopAutoPlay();
+        } else {
+            if (videos[currentVideoIndex]) {
+                videos[currentVideoIndex].play().catch(function(err) {
+                    console.log('Video play on visibility change failed:', err);
+                });
+            }
+            startAutoPlay();
+        }
+    });
+    
+    // Initialize the carousel
+    initCarousel();
+    
+    // Ensure videos play on user interaction (for autoplay restrictions)
+    $(document).on('click touchstart', function() {
+        videos.forEach(video => {
             video.play().catch(function(err) {
                 console.log('Video play on interaction failed:', err);
             });
         });
-        
-        // Pause video when page is not visible (saves battery)
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                video.pause();
-            } else {
-                video.play().catch(function(err) {
-                    console.log('Video play on visibility change failed:', err);
-                });
-            }
-        });
-        
-        // Force play after a delay
-        setTimeout(function() {
-            video.play().catch(function(err) {
-                console.log('Delayed video play failed:', err);
-            });
-        }, 1000);
-    } else {
-        console.error('Video element not found!');
-    }
+    });
 });
 
 // Mobile hamburger menu functionality

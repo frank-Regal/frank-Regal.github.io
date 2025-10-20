@@ -70,18 +70,101 @@ body{
     display: block;
 }
 
-/* Full-screen background video */
-#background-video {
+/* Video Carousel Styles */
+#video-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.carousel-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0;
-    opacity: 0.8;
+    opacity: 0;
     background: #000;
     pointer-events: none;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-video.active {
+    opacity: 0.8;
+}
+
+/* Video Navigation Controls */
+#video-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px 25px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-nav-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.video-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.video-nav-btn:active {
+    transform: scale(0.95);
+}
+
+#video-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.3);
 }
 
 /* Dark overlay for better text readability */
@@ -342,8 +425,6 @@ body{
 
 .mobile-nav-links a:hover {
     color: #ffffff;
-}
- border-radius: 20px;
 }
 .close-first {
     transform: rotate(45deg);
@@ -3950,6 +4031,53 @@ Monitor
     }
 
 
+}
+
+/* Mobile responsiveness for video controls */
+@media only screen and (max-width: 768px) {
+    #video-controls {
+        bottom: 20px;
+        padding: 12px 20px;
+        gap: 15px;
+    }
+    
+    .video-nav-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .video-nav-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    #video-controls {
+        bottom: 15px;
+        padding: 10px 15px;
+        gap: 12px;
+    }
+    
+    .video-nav-btn {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .video-nav-btn svg {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 /* Mobile responsiveness for nav-name */
